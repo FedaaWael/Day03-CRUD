@@ -18,6 +18,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/tracks">Tracks</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/courses">Courses</a>
+                    </li>
                 </ul>
     </nav>
 

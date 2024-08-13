@@ -22,31 +22,33 @@
                         <a class="nav-link active" aria-current="page" href="/courses">Courses</a>
                     </li>
                 </ul>
+            </div>
+        </div>
     </nav>
-    <h1 style="text-align: center; margin-top:10px">Tracks</h1>
-    <a href="{{ route('tracks.create') }}" class="btn btn-primary" style="margin-left:90rem; margin-bottom:30px">Add New Track</a>
+    <h1 style="text-align: center; margin-top:10px">Courses</h1>
+    <a href="{{ route('courses.create') }}" class="btn btn-primary" style="margin-left:90rem; margin-bottom:30px">Add New Course</a>
     <div class="container">
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Photo</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Grade</th>
+                    <th scope="col">Description</th>
                     <th scope="col">Hours</th>
-
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($tracks as $track)
+                @foreach($courses as $course)
                 <tr>
-                    <td><img src="{{ asset('storage/'. $track->photo) }}" alt="{{ $track->name }}" width="100"></td>
-                    <td>{{ $track->name }}</td>
-                    <td>{{ $track->hours }}</td>
-
+                    <td>{{ $course->name }}</td>
+                    <td>{{ $course->grade }}</td>
+                    <td>{{ $course->description }}</td>
+                    <td>{{ $course->hours }}</td>
                     <td>
                         <div style="display: flex; gap: 5px;">
-                            <a href="{{ route('tracks.edit', $track->id) }}"><x-button color="primary" content="Edit"></x-button></a>
-                            <form action="{{ route('tracks.destroy', $track->id) }}" method="POST">
+                            <a href="{{ route('courses.edit', $course->id) }}"><x-button color="primary" content="Edit"></x-button></a>
+                            <form action="{{ route('courses.destroy', $course->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <x-button type="submit" color="danger" content="Delete"></x-button>

@@ -23,10 +23,6 @@
                 <label for="Hours">Hours</label>
                 <input type="number" name="hours" id="hours" class="form-control" required>
             </div>
-            <div class="form-group">
-                <label for="grade">branch</label>
-                <input type="text" name="branch" id="branch" class="form-control" required>
-            </div>
             <!-- Student Photo -->
             <div class="form-group">
                 <label for="photo">Photo</label>

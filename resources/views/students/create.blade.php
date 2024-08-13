@@ -13,7 +13,6 @@
     <div class="container">
         <form action="{{ route('students.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-
             <!-- Student Name -->
             <div class="form-group">
                 <label for="name">Name</label>

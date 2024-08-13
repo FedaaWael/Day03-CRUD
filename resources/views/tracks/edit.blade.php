@@ -19,6 +19,7 @@
             @method('PUT')
             <!-- Track Name -->
             <div class="form-group">
+
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $track->name) }}" required>
             </div>
@@ -30,10 +31,7 @@
             </div>
 
             <!-- Track Grade -->
-            <div class="form-group">
-                <label for="branch">Branch</label>
-                <input type="text" name="branch" id="branch" class="form-control" value="{{ old('branch', $track->branch) }}" required>
-            </div>
+
             <div class="form-group">
                 <label for="photo">Photo</label>
                 <input type="file" name="photo" id="photo" class="form-control">
@@ -41,8 +39,9 @@
                 <img src="{{ Storage::url($track->photo) }}" alt="Current Photo" style="max-width: 150px; margin-top: 10px;">
                 @endif
             </div>
+
             <!-- Update Button -->
-            <x-button type="submit" color="primary" content="Update Track"></x-button>
+            <button type="submit" class="btn btn-primary">Update Track</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

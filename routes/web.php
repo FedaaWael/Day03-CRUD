@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrackController;
-
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentController;
 
 Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
@@ -28,3 +28,15 @@ Route::get('/tracks/{track}/edit', [TrackController::class, 'edit'])->name('trac
 Route::put('/tracks/{track}', [TrackController::class, 'update'])->name('tracks.update');
 
 Route::delete('/tracks/{track}', [TrackController::class, 'destroy'])->name('tracks.destroy');
+
+Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
+
+Route::get('/courses/{course}/edit', [CourseController::class, 'edit'])->name('courses.edit');
+
+Route::get('/courses/create', [CourseController::class, 'create'])->name('courses.create');
+
+Route::delete('/courses/{course}', [CourseController::class, 'destroy'])->name('courses.destroy');
+
+Route::put('/courses/{course}', [CourseController::class, 'update'])->name('courses.update');
+
+Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');

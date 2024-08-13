@@ -28,39 +28,38 @@ class TrackController extends Controller
         $track = new Track;
         $track->name = $data['name'];
         $track->hours = $data['hours'];
-        $track->branch = $data['branch'];
 
         if ($request->hasFile('photo')) {
             $data['photo'] = $request->file('photo')->store('tracks_photos', 'public');
         }
+
         Track::create($data);
         return redirect()->route('tracks.index');
     }
 
-    public function edit(Track $track)
+    public function edit(Track $track, Request $request)
     {
         return view('tracks.edit', compact('track'));
     }
-
     public function update(Request $request, Track $track)
     {
-
-        $data = $request->all();
         if ($request->hasFile('photo')) {
             if ($track->photo) {
                 Storage::delete('public/' . $track->photo);
             }
             $data['photo'] = $request->file('photo')->store('tracks_photos', 'public');
         }
-
         $track->update($data);
-        return redirect()->route('tracks.index');
+        return to_route('tracks.index');
     }
 
     public function destroy(Track $track)
     {
         if ($track->photo) {
-            Storage::delete('public/' . $track->photo);
+            $imagePath = Storage::delete('public/' . $track->photo);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
         }
         $track->delete();
         return redirect()->route('tracks.index');
