@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use luminate\Database\Eloquent\Collection;
 
 class CourseController extends Controller
 {
     public function index()
     {
-        $courses = Course::all();
+        $courses = Course::paginate(3);
+        // $courses = Course::all();
         return view('courses.index', compact("courses"));
     }
 
